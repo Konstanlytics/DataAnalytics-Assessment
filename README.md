@@ -8,8 +8,8 @@ To identify customers with both a savings and an investment plan, I joined the `
 ### Question 2: Transaction Frequency Analysis
 I calculated the average number of transactions per customer per month by first counting all inflow transactions per customer from the `savings_savingsaccount` table. I used the difference in months between the first and last transaction (`transaction_date`) to compute account activity duration. Customers were then categorized as "High", "Medium", or "Low Frequency" based on defined thresholds.
 
-### Question 3: Account Inactivity Alert
-This query finds accounts that have not received any deposit in over one year. I joined `plans_plan` with `savings_savingsaccount`, grouped by plan, and checked the latest `transaction_date`. If that date was more than 365 days from the current date, the account was flagged as inactive.
+### Question 3: Account Inactivity Alert  
+This query identifies accounts that have not had any transactions in over one year. I joined `plans_plan` with `savings_savingsaccount`, grouped by plan, and checked the latest `transaction_date`. If that date was more than 365 days from the current date, the account was flagged as inactive.
 
 ### Question 4: Customer Lifetime Value (CLV) Estimation
 To estimate CLV, I calculated the number of months between each customer’s signup date and their most recent transaction. I computed total transaction value and assumed a profit per transaction of 0.1%. The CLV formula was:  
